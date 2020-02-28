@@ -6,6 +6,9 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
 
+/**
+ * This class is responsible to perform Read/Write operations with files
+ */
 class FileHandlerImpl : FilesHandler {
     override fun readFromFiles(filePath: String): List<String> {
         return try {
