@@ -34,12 +34,13 @@ class InvitesInvitesDataSourceImpl : InvitesDataSource {
         return getUserDataFromFile()
     }
 
-    override fun saveOutput(guestsList: List<UserDataModel>) {
+    override fun saveOutput(guestsList: List<UserDataModel>?) {
         val stringBuilder = StringBuilder()
-        guestsList.forEach {
-            stringBuilder.append("Guest Id: ${it.user_id} | Name: ${it.name} \n")
+        if (!guestsList.isNullOrEmpty()) {
+            guestsList.forEach {
+                stringBuilder.append("Guest Id: ${it.user_id} | Name: ${it.name} \n")
+            }
+            fileHandlerImpl.writeToFiles(OUTPUT_FILE_PATH, stringBuilder.toString())
         }
-        fileHandlerImpl.writeToFiles(OUTPUT_FILE_PATH, stringBuilder.toString())
     }
-
 }
