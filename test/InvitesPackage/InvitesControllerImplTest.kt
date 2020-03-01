@@ -5,8 +5,6 @@ import org.junit.Test
 
 class InvitesControllerImplTest {
 
-    lateinit var source: CoordinatesModel
-    lateinit var dest: CoordinatesModel
     private val invitesViewModelImpl by lazy { InvitesControllerImpl() }
 
     @Test
